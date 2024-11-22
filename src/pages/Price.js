@@ -13,7 +13,7 @@ export default function Price (props) {
   const [coin, setCoin] = useState("null");
 
   // Function to fetch coin data.
-  const getCoin = async () => {
+  /* const getCoin = async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -21,11 +21,11 @@ export default function Price (props) {
     } catch(e) {
       console.error(e)
     }
-  }; 
+  };  */
 
   // useEffect to run getCoin when component mounts.
   useEffect(() => {
-    /* const getCoin = async () => {
+    const getCoin = async () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -33,9 +33,9 @@ export default function Price (props) {
       } catch(e) {
         console.error(e)
       }
-    }; */
+    }; 
     getCoin();
-  }, []);
+  }, [url]);
 
   // loaded function for when data is fetched.
   const loaded = () => {
