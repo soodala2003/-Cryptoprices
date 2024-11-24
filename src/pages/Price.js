@@ -2,12 +2,13 @@ import {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 
 export default function Price (props) {
-  const apiKey = "F2AF97A4-72C9-4015-92DA-F7A076F3A93B"; 
+  //const apiKey = "F2AF97A4-72C9-4015-92DA-F7A076F3A93B"; 
+  const apiKey = "BCAD6FB5-86BF-4779-8796-17811BB066B7";
 
   const params = useParams();
   const symbol = params.symbol;
 
-  const url = `http://rest-sandbox.coinapi.io/v1/exchangerate/${symbol}/USD?apikey=${apiKey}`;
+  const url = `http://rest.coinapi.io/v1/exchangerate/${symbol}/USD?apikey=${apiKey}`;
 
   // State to hold the coin data.
   const [coin, setCoin] = useState([]);
@@ -19,6 +20,7 @@ export default function Price (props) {
         const response = await fetch(url);
         const data = await response.json();
         setCoin(data);
+        console.log(data);
       } catch(e) {
         console.error(e);
       }
@@ -44,5 +46,5 @@ export default function Price (props) {
   };
 
   // If coin has data, run the loaded function; otherwise, run loading.
-  return coin ? loaded() : loading();
+  return coin && coin.rate ? loaded() : loading();
 }
