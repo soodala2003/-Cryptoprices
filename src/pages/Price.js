@@ -2,7 +2,6 @@ import {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 
 export default function Price (props) {
-  //const apiKey = "F2AF97A4-72C9-4015-92DA-F7A076F3A93B"; 
   const apiKey = "BCAD6FB5-86BF-4779-8796-17811BB066B7";
 
   const params = useParams();
